@@ -36,6 +36,8 @@ cd fontawsome
 sudo unzip -d . ~/Downloads/fontawesome-free-5.10.2-desktop.zip
 sudo chmod -R --reference=/usr/share/fonts/opentype /usr/share/fonts/fontawsome
 
+cp ./config/.config/polybar/fonts/* /usr/share/fonts
+
 sudo fc-cache -fv
 
 
