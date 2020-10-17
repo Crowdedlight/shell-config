@@ -52,7 +52,7 @@ sudo fc-cache -fv
 
 #install everything
 sudo apt-get update
-sudo apt install -y compton docker-ce docker-ce-cli containerd.io feh rofi
+sudo apt install -y compton fzf docker-ce docker-ce-cli containerd.io feh rofi
 #sudo apt install -y alacritty arc-theme compton polybar i3-gaps
 #pip install flashfocus
 
@@ -77,10 +77,10 @@ mv ~/.zshrc ~/.zshrc.old
 #mv ~/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml.old
 
 cd $CONFIG_PATH;
-stow config
-stow git
-stow gnupg
-stow shell
+stow -t $HOME config
+stow -t $HOME git
+stow -t $HOME gnupg
+stow -t $HOME shell
 
 #set permissions
 #sudo chmod +x ~/.config/polybar/launch.sh

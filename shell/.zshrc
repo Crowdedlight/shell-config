@@ -1,8 +1,8 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
-# fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# source fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
