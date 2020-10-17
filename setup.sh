@@ -52,7 +52,7 @@ sudo fc-cache -fv
 
 #install everything
 sudo apt-get update
-sudo apt install -y compton fzf docker-ce docker-ce-cli containerd.io feh rofi
+sudo apt install -y compton fzf docker-ce docker-ce-cli containerd.io feh rofi powerline-fonts fonts-firacode
 #sudo apt install -y alacritty arc-theme compton polybar i3-gaps
 #pip install flashfocus
 
@@ -70,6 +70,9 @@ fi
 
 # install theme
 ln -s "$CONFIG_PATH/zsh-themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+
+# install plugins
+git clone https://github.com/bobthecow/git-flow-completion $HOME/.oh-my-zsh/custom/plugins/git-flow-completion
 
 #simlink configs
 mv ~/.bashrc ~/.bashrc.old

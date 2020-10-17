@@ -1,9 +1,6 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
-# source fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -55,7 +52,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git composer git-extras git-hubflow sudo common-aliases cp redis-cli zsh_reload history)
+plugins=(git composer git-extras git-hubflow git-flow-completion sudo common-aliases cp redis-cli zsh_reload)
 
 # User configuration
 
@@ -70,3 +67,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Source local extra (private) settings specific to machine if it exists
 [ -f ~/.zsh.local ] && source ~/.zsh.local
+
+# source fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
