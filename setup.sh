@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# make sure submodules are updated
+git submodule init
+git submodule update
+
 CONFIG_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 sudo -v
@@ -10,8 +14,13 @@ sudo apt-get upgrade -y
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common ffmpeg coreutils zsh vim build-essential fonts-hack-ttf git neovim stow curl gnupg network-manager network-manager-gnome snapd libxcb-render0-dev libffi-dev python-dev python-cffi fonts-materialdesignicons-webfont unzip wget
 
 #setup i3 and stuff
-sudo add-apt-repository -y ppa:kgilmer/speed-ricer
-sudo add-apt-repository -y ppa:mmstick76/alacritty
+#sudo add-apt-repository -y ppa:kgilmer/speed-ricer
+#sudo add-apt-repository -y ppa:mmstick76/alacritty
+
+# install tilix
+sudo apt install tilix
+# set tilix default
+sudo update-alternatives --config x-terminal-emulator
 
 #setup docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -43,34 +52,44 @@ sudo fc-cache -fv
 
 #install everything
 sudo apt-get update
-sudo apt install -y i3-gaps polybar conky alacritty compton docker-ce docker-ce-cli containerd.io feh rofi arc-theme 
-pip install flashfocus
+sudo apt install -y compton docker-ce docker-ce-cli containerd.io feh rofi
+#sudo apt install -y alacritty arc-theme compton polybar i3-gaps
+#pip install flashfocus
 
-gsettings set org.gnome.desktop.interface gtk-theme 'Ark-Dark'
-wget https://i.imgur.com/n0PSwJQ.png -O ~/Pictures/samurai.png
+#gsettings set org.gnome.desktop.interface gtk-theme 'Ark-Dark'
+#wget https://i.imgur.com/n0PSwJQ.png -O ~/Pictures/samurai.png
 
 
 #install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+# set zsh as default shell if it isn't
+if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
+    chsh -s $(which zsh)
+fi
+
+# install theme
+ln -s "$CONFIG_PATH/zsh-themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 
 #simlink configs
 mv ~/.bashrc ~/.bashrc.old
 mv ~/.zshrc ~/.zshrc.old
-mv ~/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml.old
+#mv ~/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml.old
 
 cd $CONFIG_PATH;
 stow config
-stow editor
 stow git
 stow gnupg
 stow shell
 
 #set permissions
-sudo chmod +x ~/.config/polybar/launch.sh
+#sudo chmod +x ~/.config/polybar/launch.sh
 sudo chmod +x ~/.config/rofi/run_rofi.sh
 
 #clean up
 sudo apt-get autoclean
 sudo apt-get autoremove
+
+# reload zsh settings
+source ~/.zshrc
 

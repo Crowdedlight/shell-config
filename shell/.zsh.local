@@ -1,0 +1,16 @@
+
+# local sourcing for this machine
+
+
+# gazebo and ros
+source /opt/ros/noetic/setup.bash
+source $HOME/workspace/catkin_ws/devel/setup.bash
+export ROS_PYTHON_VERSION=3
+
+# balena cli
+export PATH=$PATH:$HOME/workspace/balena-cli
+
+# tilix fix
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+    source /etc/profile.d/vte.sh
+fi
