@@ -11,14 +11,14 @@ sudo -v
 sudo apt-get update
 sudo apt-get upgrade -y
 
-sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common ffmpeg coreutils zsh vim build-essential fonts-hack-ttf git neovim stow curl gnupg network-manager network-manager-gnome snapd libxcb-render0-dev libffi-dev python-dev python-cffi fonts-materialdesignicons-webfont unzip wget
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common ffmpeg coreutils zsh vim build-essential fonts-hack-ttf git neovim stow curl gnupg network-manager network-manager-gnome snapd libxcb-render0-dev libffi-dev python-dev vlc thunderbird python-cffi fonts-materialdesignicons-webfont unzip wget
 
 #setup i3 and stuff
 #sudo add-apt-repository -y ppa:kgilmer/speed-ricer
 #sudo add-apt-repository -y ppa:mmstick76/alacritty
 
 # install tilix
-sudo apt install tilix
+sudo apt install -y tilix
 # set tilix default
 sudo update-alternatives --config x-terminal-emulator
 
