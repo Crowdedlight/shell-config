@@ -29,6 +29,8 @@ sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/u
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
+sudo apt install -y docker-ce
+
 #fonts
 wget https://use.fontawesome.com/releases/v5.10.2/fontawesome-free-5.10.2-desktop.zip -O ~/Downloads/fontawesome-free-5.10.2-desktop.zip
 wget https://fonts.google.com/download?family=Open%20Sans -O ~/Downloads/Open_Sans.zip
