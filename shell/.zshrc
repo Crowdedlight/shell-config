@@ -39,7 +39,7 @@ export PATH
 ZSH_THEME="spaceship"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -52,7 +52,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git composer git-extras git-hubflow git-flow-completion sudo common-aliases cp redis-cli zsh_reload)
+plugins=(git composer git-extras git-hubflow git-flow-completion sudo common-aliases cp redis-cli zsh_reload docker docker-compose)
 
 # User configuration
 

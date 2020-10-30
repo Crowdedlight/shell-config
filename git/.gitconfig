@@ -169,7 +169,7 @@
         tool = opendiff
 
 [core]
-        editor = vim
+        editor = nano
         abbrev = 12
         attributesfile = ~/.gitattributes
         excludesfile = ~/.gitignore
