@@ -15,6 +15,7 @@ dirs_to_prepend=(
   "/usr/local/"
   "/usr/local/mysql/bin"
   "/sw/bin/"
+  "/home/$USER/.local/bin"
 )
 
 # Explicitly configured $PATH
