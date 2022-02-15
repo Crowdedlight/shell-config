@@ -202,7 +202,7 @@ alias cb='catkin build && source devel/setup.bash' # cb:    Builds catkin packag
 alias gaz='source /home/$USER/workspace/Firmware/Tools/setup_gazebo.bash /home/$USER/workspace/Firmware /home/$USER/workspace/Firmware/build/px4_sitl_default && export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/$USER/Firmware && export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/$USER/Firmware/Tools/sitl_gazebo'
 
 # alias for ros2 workspace, ros2. sources it and changes to ros2 workspace
-alias r2='source /opt/ros/galactic/setup.zsh && cd /home/$USER/workspace/ros2_ws/src/'
+alias r2='source /opt/ros/galactic/setup.zsh && cd /home/$USER/workspace/ros2_ws/'
 alias r2new='ros2 pkg create --maintainer-email fm@mmmi.sdu.dk --maintainer-name "Frederik Mazur Andersen"'
 
 # alias for ros1 workspace, source it
