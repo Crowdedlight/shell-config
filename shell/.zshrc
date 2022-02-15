@@ -53,7 +53,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git composer git-extras git-hubflow git-flow-completion sudo common-aliases cp redis-cli zsh_reload docker docker-compose)
+plugins=(git composer git-extras git-hubflow git-flow-completion sudo common-aliases cp redis-cli docker docker-compose)
 
 # User configuration
 
@@ -71,3 +71,5 @@ source $ZSH/oh-my-zsh.sh
 
 # source fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+. "$HOME/.cargo/env"
