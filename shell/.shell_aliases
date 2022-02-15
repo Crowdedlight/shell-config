@@ -203,6 +203,7 @@ alias gaz='source /home/$USER/workspace/Firmware/Tools/setup_gazebo.bash /home/$
 
 # alias for ros2 workspace, ros2. sources it and changes to ros2 workspace
 alias r2='source /opt/ros/galactic/setup.zsh && cd /home/$USER/workspace/ros2_ws/src/'
+alias r2new='ros2 pkg create --maintainer-email fm@mmmi.sdu.dk --maintainer-name "Frederik Mazur Andersen"'
 
 # alias for ros1 workspace, source it
 alias r1='source /opt/ros/noetic/setup.zsh && source $HOME/workspace/catkin_ws/devel/setup.zsh'

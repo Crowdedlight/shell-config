@@ -3,9 +3,9 @@
 
 
 # gazebo and ros
-#source /opt/ros/noetic/setup.zsh
-#source $HOME/workspace/catkin_ws/devel/setup.zsh
 export ROS_PYTHON_VERSION=3
+# ros2 domain id
+export ROS_DOMAIN_ID=106
 
 # balena cli
 export PATH=$PATH:$HOME/workspace/balena-cli
