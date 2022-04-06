@@ -186,7 +186,6 @@ alias edit='subl'                           # edit:         Opens any file in su
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
 alias c='clear'                             # c:            Clear terminal display
-alias which='type -all'                     # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 alias show_options='shopt'                  # Show_options: display bash options settings
 alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
@@ -203,7 +202,11 @@ alias gaz='source /home/$USER/workspace/Firmware/Tools/setup_gazebo.bash /home/$
 
 # alias for ros2 workspace, ros2. sources it and changes to ros2 workspace
 alias r2='source /opt/ros/foxy/setup.zsh'
-alias r2cd='r2 && cd /home/$USER/workspace/ros2_ws/'
+alias r2cd='r2 && cd /home/$USER/workspace/ros_workspaces/'
+alias r2clean='r2 && sudo rm -rf install && sudo rm -rf log && sudo rm -rf build'
+alias r2b='r2 && colcon build --symlink-install'
+alias r2bcd='r2cd && r2b'
+alias ss='source install/setup.zsh'
 
 alias r2new='ros2 pkg create --maintainer-email fm@mmmi.sdu.dk --maintainer-name "Frederik Mazur Andersen"'
 
@@ -213,3 +216,6 @@ alias r1cd='r1 && cd $HOME/workspace/catkin_ws/'
 
 # alias for sudo with path set
 alias sudop='sudo env "PATH=$PATH"'
+
+# alias for clion with r2 sourced and orphaned
+alias r2lion='r2 && clion & disown'
