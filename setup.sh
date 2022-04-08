@@ -54,7 +54,7 @@ sudo fc-cache -fv
 
 #install everything
 sudo apt-get update
-sudo apt install -y compton fzf docker-ce docker-ce-cli containerd.io feh rofi powerline-fonts fonts-firacode
+sudo apt install -y compton fzf docker-ce docker-ce-cli containerd.io feh rofi fonts-firacode
 #sudo apt install -y alacritty arc-theme compton polybar i3-gaps
 #pip install flashfocus
 

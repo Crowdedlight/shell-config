@@ -68,11 +68,10 @@ source $ZSH/oh-my-zsh.sh
 
 # Source local extra (private) settings specific to machine if it exists
 [ -f ~/.zsh.local ] && source ~/.zsh.local
+[ -f ~/.zshenv ] && source ~/.zshenv
 
 # source fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-. "$HOME/.cargo/env"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
