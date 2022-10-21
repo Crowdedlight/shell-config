@@ -199,20 +199,26 @@ alias cb='catkin build && source devel/setup.bash' # cb:    Builds catkin packag
 
 # alias for gazebo sourcing
 alias gaz='source /home/$USER/workspace/Firmware/Tools/setup_gazebo.bash /home/$USER/workspace/Firmware /home/$USER/workspace/Firmware/build/px4_sitl_default && export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/$USER/Firmware && export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/$USER/Firmware/Tools/sitl_gazebo'
+alias gzkill='killall -9 gzserver gzclient'
 
 # alias for ros2 workspace, ros2. sources it and changes to ros2 workspace
 alias r2='source /opt/ros/foxy/setup.zsh'
-alias r2cd='r2 && cd /home/$USER/workspace/ros_workspaces/'
+alias r2fod='r2 && cd /home/$USER/workspace/ros_workspaces/fod4wind_ws && ss'
+alias r2sim='r2 && cd /home/$USER/workspace/ros_workspaces/simulation_ws && ss'
 alias r2clean='r2 && sudo rm -rf install && sudo rm -rf log && sudo rm -rf build'
 alias r2b='r2 && colcon build --symlink-install'
 alias r2bcd='r2cd && r2b'
 alias ss='source install/setup.zsh'
+# We always want to build with symlink by default and supress the noise about unused parameters
+alias colcon build='colcon build --symlink --cmake-args --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
+alias colcon build ninja='colcon build --symlink --cmake-args --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja'
 
 alias r2new='ros2 pkg create --maintainer-email fm@mmmi.sdu.dk --maintainer-name "Frederik Mazur Andersen"'
 
 # alias for ros1 workspace, source it
-alias r1='source /opt/ros/noetic/setup.zsh && source $HOME/workspace/catkin_ws/devel/setup.zsh'
-alias r1cd='r1 && cd $HOME/workspace/catkin_ws/'
+alias r1='source /opt/ros/noetic/setup.zsh && source $HOME/workspace/ros_workspaces/genius_ws/devel/setup.zsh'
+alias r1cd='r1 && cd $HOME/workspace/ros_workspaces/genius_ws/'
+alias ss1='source devel/setup.zsh'
 
 # alias for sudo with path set
 alias sudop='sudo env "PATH=$PATH"'
