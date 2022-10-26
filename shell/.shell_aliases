@@ -210,7 +210,7 @@ alias r2b='r2 && colcon build --symlink-install'
 alias r2bcd='r2cd && r2b'
 alias ss='source install/setup.zsh'
 # We always want to build with symlink by default and supress the noise about unused parameters
-alias colcon build='colcon build --symlink --cmake-args --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
+alias cb='colcon build --symlink --cmake-args --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
 alias cbn='colcon build --symlink --cmake-args --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja'
 
 alias r2new='ros2 pkg create --maintainer-email fm@mmmi.sdu.dk --maintainer-name "Frederik Mazur Andersen"'
