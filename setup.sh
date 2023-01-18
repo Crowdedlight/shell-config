@@ -11,7 +11,7 @@ sudo -v
 sudo apt-get update
 sudo apt-get upgrade -y
 
-sudo apt-get install -y apt-transport-https ca-certificates fonts-firacode curl gnupg-agent software-properties-common ffmpeg coreutils zsh vim build-essential fonts-hack-ttf git neovim stow curl gnupg network-manager network-manager-gnome snapd libxcb-render0-dev libffi-dev python-dev vlc thunderbird python-cffi fonts-materialdesignicons-webfont unzip wget
+sudo apt-get install -y apt-transport-https ca-certificates fonts-firacode curl gnupg-agent software-properties-common ffmpeg coreutils zsh nano build-essential fonts-hack-ttf git neovim stow curl gnupg network-manager network-manager-gnome snapd libxcb-render0-dev libffi-dev python-dev vlc thunderbird python-cffi fonts-materialdesignicons-webfont unzip wget
 
 #setup i3 and stuff
 #sudo add-apt-repository -y ppa:kgilmer/speed-ricer
@@ -54,7 +54,7 @@ sudo fc-cache -fv
 
 #install everything
 sudo apt-get update
-sudo apt install -y compton fzf docker-ce docker-ce-cli containerd.io feh rofi fonts-firacode
+sudo apt install -y compton docker-ce docker-ce-cli containerd.io feh rofi fonts-firacode
 #sudo apt install -y alacritty arc-theme compton polybar i3-gaps
 #pip install flashfocus
 
@@ -69,6 +69,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
     chsh -s $(which zsh)
 fi
+
+# install fzf
+sudo apt install -y fzf
 
 # install theme
 ln -s "$CONFIG_PATH/zsh-themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
