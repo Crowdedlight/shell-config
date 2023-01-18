@@ -61,6 +61,9 @@ sudo apt install -y compton docker-ce docker-ce-cli containerd.io feh rofi fonts
 #gsettings set org.gnome.desktop.interface gtk-theme 'Ark-Dark'
 #wget https://i.imgur.com/n0PSwJQ.png -O ~/Pictures/samurai.png
 
+# add user to dialout and docker groups
+sudo usermod -a -G dialout $USER
+sudo usermod -a -G docker $USER
 
 #install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
