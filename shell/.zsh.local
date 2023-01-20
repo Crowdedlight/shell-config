@@ -7,9 +7,9 @@ export ROS_PYTHON_VERSION=3
 
 # ros2 domain id and colcon_cd command
 export ROS_DOMAIN_ID=106
-source /usr/share/colcon_cd/function/colcon_cd.sh
-export _colcon_cd_root=/opt/ros/galactic/
-source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
+#source /usr/share/colcon_cd/function/colcon_cd.sh
+#export _colcon_cd_root=/opt/ros/galactic/
+#source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
 
 # balena cli
 export PATH=$PATH:$HOME/workspace/balena-cli
@@ -18,3 +18,6 @@ export PATH=$PATH:$HOME/workspace/balena-cli
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
 fi
+
+# path
+export PATH="/home/$USER/.local/share/JetBrains/Toolbox/scripts:$PATH"

@@ -202,7 +202,7 @@ alias gaz='source /home/$USER/workspace/Firmware/Tools/setup_gazebo.bash /home/$
 alias gzkill='killall -9 gzserver gzclient'
 
 # alias for ros2 workspace, ros2. sources it and changes to ros2 workspace
-alias r2='source /opt/ros/foxy/setup.zsh'
+alias r2='source /opt/ros/humble/setup.zsh'
 alias r2fod='r2 && cd /home/$USER/workspace/ros_workspaces/fod4wind_ws && ss'
 alias r2sim='r2 && cd /home/$USER/workspace/ros_workspaces/simulation_ws && ss'
 alias r2clean='r2 && sudo rm -rf install && sudo rm -rf log && sudo rm -rf build'

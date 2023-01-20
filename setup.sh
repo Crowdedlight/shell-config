@@ -11,7 +11,7 @@ sudo -v
 sudo apt-get update
 sudo apt-get upgrade -y
 
-sudo apt-get install -y apt-transport-https ca-certificates fonts-firacode curl gnupg-agent software-properties-common ffmpeg coreutils zsh nano build-essential fonts-hack-ttf git neovim stow curl gnupg network-manager network-manager-gnome snapd libxcb-render0-dev libffi-dev python-dev vlc thunderbird python-cffi fonts-materialdesignicons-webfont unzip wget
+sudo apt-get install -y fonts-firacode curl software-properties-common ffmpeg coreutils zsh nano build-essential fonts-hack-ttf git stow curl snapd vlc unzip wget python3 python3-dev gnupg
 
 #setup i3 and stuff
 #sudo add-apt-repository -y ppa:kgilmer/speed-ricer
@@ -21,6 +21,12 @@ sudo apt-get install -y apt-transport-https ca-certificates fonts-firacode curl 
 sudo apt install -y tilix
 # set tilix default
 sudo update-alternatives --config x-terminal-emulator
+# install so tilix can be used with nautilus
+sudo apt install -y python3-nautilus
+# move existing plugin for "open in terminal"
+sudo apt remove -y nautilus-extension-gnome-terminal
+# restart nautilus
+killall nautilus
 
 #setup docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -54,7 +60,7 @@ sudo fc-cache -fv
 
 #install everything
 sudo apt-get update
-sudo apt install -y compton docker-ce docker-ce-cli containerd.io feh rofi fonts-firacode
+sudo apt install -y docker-ce docker-ce-cli containerd.io fonts-firacode
 #sudo apt install -y alacritty arc-theme compton polybar i3-gaps
 #pip install flashfocus
 
@@ -66,7 +72,7 @@ sudo usermod -a -G dialout $USER
 sudo usermod -a -G docker $USER
 
 #install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # set zsh as default shell if it isn't
 if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
@@ -95,7 +101,6 @@ stow -t $HOME shell
 
 #set permissions
 #sudo chmod +x ~/.config/polybar/launch.sh
-sudo chmod +x ~/.config/rofi/run_rofi.sh
 
 #clean up
 sudo apt-get autoclean
