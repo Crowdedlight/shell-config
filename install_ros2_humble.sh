@@ -18,11 +18,13 @@ sudo apt install -y ros-dev-tools
 sudo apt install -y python3-colcon-common-extensions python3-vcstool
 
 
-# install ros2 packages
+# install ros2 packages in general and for fod4wind/simulation
 sudo apt install -y ros-humble-plotjuggler-ros
 
 # simulation controllers
-sudo apt install -y ros-humble-ros2-controllers ros-humble-ros2-control ros-humble-controller-manager
+sudo apt install -y ros-humble-ros2-controllers ros-humble-ros2-control ros-humble-controller-manager 
+sudo apt-get install ros-humble-xacro ros-humble-ros-core ros-humble-geometry2 ros-humble-ros2-controllers ros-humble-ros2-control ros-humble-controller-manager ros-humble-gazebo-ros-pkgs ros-humble-mavros ros-humble-mavros-msgs 
+
 
 # install smacc dependencies
 sudo apt install -y python3-colcon-common-extensions python3-vcstool python3-rosdep python3-rospkg ros-humble-tf2-geometry-msgs ros-humble-geometry-msgs
