@@ -13,9 +13,10 @@ sudo apt-get upgrade -y
 
 sudo apt-get install -y fonts-firacode curl software-properties-common ffmpeg coreutils zsh nano build-essential fonts-hack-ttf git stow curl snapd vlc unzip wget python3 python3-dev gnupg
 
-#setup i3 and stuff
-#sudo add-apt-repository -y ppa:kgilmer/speed-ricer
-#sudo add-apt-repository -y ppa:mmstick76/alacritty
+#setup diff-so-fancy for git
+sudo add-apt-repository -y ppa:aos1/diff-so-fancy
+sudo apt-get update
+sudo apt-get -y install diff-so-fancy
 
 # install tilix
 sudo apt install -y tilix
