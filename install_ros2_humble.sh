@@ -23,7 +23,7 @@ sudo apt install -y ros-humble-plotjuggler-ros
 
 # simulation controllers
 sudo apt install -y ros-humble-ros2-controllers ros-humble-ros2-control ros-humble-controller-manager 
-sudo apt-get install ros-humble-xacro ros-humble-ros-core ros-humble-geometry2 ros-humble-ros2-controllers ros-humble-ros2-control ros-humble-controller-manager ros-humble-gazebo-ros-pkgs ros-humble-mavros ros-humble-mavros-msgs 
+sudo apt-get install ros-humble-xacro ros-humble-ros-core ros-humble-geometry2 ros-humble-ros2-controllers ros-humble-ros2-control ros-humble-controller-manager ros-humble-gazebo-ros-pkgs ros-humble-mavros ros-humble-mavros-msgs ros-humble-gazebo-ros2-control
 
 
 # install smacc dependencies
