@@ -21,3 +21,8 @@ fi
 
 # path
 export PATH="/home/$USER/.local/share/JetBrains/Toolbox/scripts:$PATH"
+
+# fix for ros autocomplete
+# complete -o nospace -o default -F _python_argcomplete "ros2"
+#eval "$(register-python-argcomplete3 ros2)"
+#eval "$(register-python-argcomplete3 colcon)"
