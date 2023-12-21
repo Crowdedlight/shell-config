@@ -68,8 +68,9 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io fonts-firacode
 #gsettings set org.gnome.desktop.interface gtk-theme 'Ark-Dark'
 #wget https://i.imgur.com/n0PSwJQ.png -O ~/Pictures/samurai.png
 
-# add user to dialout and docker groups
+# add user to dialout, plugdev and docker groups
 sudo usermod -a -G dialout $USER
+sudo usermod -a -G plugdev $USER
 sudo usermod -a -G docker $USER
 
 #install oh-my-zsh
