@@ -23,7 +23,7 @@ sudo apt install -y ros-humble-plotjuggler-ros
 
 # simulation controllers
 sudo apt install -y ros-humble-ros2-controllers ros-humble-ros2-control ros-humble-controller-manager 
-sudo apt-get install ros-humble-xacro ros-humble-ros-core ros-humble-geometry2 ros-humble-ros2-controllers ros-humble-ros2-control ros-humble-controller-manager ros-humble-gazebo-ros-pkgs ros-humble-mavros ros-humble-mavros-msgs ros-humble-gazebo-ros2-control
+sudo apt-get install ros-humble-xacro ros-humble-ros-core ros-humble-geometry2 ros-humble-ros2-controllers ros-humble-ros2-control ros-humble-controller-manager ros-humble-gazebo-ros-pkgs ros-humble-mavros ros-humble-mavros-msgs ros-humble-gazebo-ros2-control ros-foxy-rosbag2-storage-mcap
 
 
 # install smacc dependencies
@@ -39,10 +39,9 @@ sudo apt update
 sudo apt -y install ros-humble-smacc2-rta
 
 
-
 # install px4 firmware - with current working branch and commit
 cd $HOME/workspace/
-git clone git@github.com:PX4/PX4-Autopilot.git
+git clone --recurse-submodules git@github.com:PX4/PX4-Autopilot.git
 cd PX4-Autopilot
-git checkout fe26ee244d5ecb8e6610b6146dc6102cf3b691a4
+git checkout main
 

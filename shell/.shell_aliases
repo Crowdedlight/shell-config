@@ -195,14 +195,14 @@ trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the 
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 alias usbs='dmesg | grep tty'               # usbs:         Shows connected usbs
-alias cb='catkin build && source devel/setup.bash' # cb:    Builds catkin packages and sources devel
+#alias cb='catkin build && source devel/setup.bash' # cb:    Builds catkin packages and sources devel
 
 # alias for gazebo sourcing
 alias gaz='source /home/$USER/workspace/Firmware/Tools/setup_gazebo.bash /home/$USER/workspace/Firmware /home/$USER/workspace/Firmware/build/px4_sitl_default && export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/$USER/Firmware && export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/$USER/Firmware/Tools/sitl_gazebo'
 alias gzkill='killall -9 gzserver gzclient'
 
 # alias for ros2 workspace, ros2. sources it and changes to ros2 workspace
-alias r2='source /opt/ros/humble/setup.zsh && complete -o nospace -o default -F _python_argcomplete "ros2"'
+alias r2='source /opt/ros/foxy/setup.zsh && complete -o nospace -o default -F _python_argcomplete "ros2"'
 alias r2fod='r2 && cd /home/$USER/workspace/ros_workspaces/fod4wind_ws'
 alias r2sim='r2 && cd /home/$USER/workspace/ros_workspaces/simulation_ws'
 alias r2b='r2 && cb'

@@ -33,4 +33,48 @@ sudo apt -y install code
 # Font Papirus
 sudo add-apt-repository ppa:papirus/papirus
 sudo apt-get update
-sudo apt-get install papirus-icon-theme
+sudo apt-get -y install papirus-icon-theme
+
+# install slack
+sudo snap install slack
+
+# notion
+echo "deb [trusted=yes] https://apt.fury.io/notion-repackaged/ /" | sudo tee /etc/apt/sources.list.d/notion-repackaged.list
+sudo apt update
+sudo apt install notion-app-enhanced
+
+# install kicad 
+sudo add-apt-repository -y ppa:kicad/kicad-7.0-releases
+sudo apt update
+sudo apt -y install kicad
+
+# solaar, flameshot
+sudo apt -y install solaar flameshot teams
+
+echo "Now downloading .debs of programs for manual installation with eddy..."
+
+# prospect mail 0.4.0
+cd $HOME/Downloads/
+wget https://github.com/julian-alarcon/prospect-mail/releases/download/v0.4.0/prospect-mail_0.4.0_amd64.deb 
+
+# discord
+wget https://discord.com/api/download?platform=linux&format=deb
+
+# rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# toolbox
+mkdir $HOME/workspace
+cd $HOME/workspace/
+
+wget https://www.jetbrains.com/toolbox-app/download/download-thanks.html?platform=linux 
+wget https://github.com/nextcloud-releases/desktop/releases/latest/download/Nextcloud-3.11.0-x86_64.AppImage
+
+# flutter
+sudo snap install flutter --classic
+
+
+
+
+
+
