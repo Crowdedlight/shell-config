@@ -73,6 +73,22 @@ wget https://github.com/nextcloud-releases/desktop/releases/latest/download/Next
 # flutter
 sudo snap install flutter --classic
 
+# firefox
+sudo add-apt-repository ppa:mozillateam/ppa
+echo '
+Package: *
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 1001
+
+Package: firefox
+Pin: version 1:1snap1-0ubuntu2
+Pin-Priority: -1
+' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+sudo snap remove firefox
+# sudo systemctl stop var-snap-firefox-common-host\x2dhunspell.mount
+# sudo systemctl disable var-snap-firefox-common-host\x2dhunspell.mount
+sudo apt install firefox
+echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
 
 
 
