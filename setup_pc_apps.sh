@@ -67,7 +67,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 mkdir $HOME/workspace
 cd $HOME/workspace/
 
-wget https://www.jetbrains.com/toolbox-app/download/download-thanks.html?platform=linux 
+wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.1.3.18901.tar.gz 
 wget https://github.com/nextcloud-releases/desktop/releases/latest/download/Nextcloud-3.11.0-x86_64.AppImage
 
 # flutter

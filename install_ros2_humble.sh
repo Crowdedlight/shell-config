@@ -40,6 +40,7 @@ sudo apt -y install ros-humble-smacc2-rta
 
 
 # install px4 firmware - with current working branch and commit
+mkdir $HOME/workspace/ 
 cd $HOME/workspace/
 git clone --recurse-submodules git@github.com:PX4/PX4-Autopilot.git
 cd PX4-Autopilot
