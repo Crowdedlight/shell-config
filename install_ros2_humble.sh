@@ -22,12 +22,17 @@ sudo apt install -y python3-colcon-common-extensions python3-vcstool
 sudo apt install -y ros-humble-plotjuggler-ros
 
 # simulation controllers
+<<<<<<< HEAD
 sudo apt install -y ros-humble-ros2-controllers ros-humble-ros2-control ros-humble-controller-manager 
 sudo apt-get install ros-humble-xacro ros-humble-ros-core ros-humble-geometry2 ros-humble-ros2-controllers ros-humble-ros2-control ros-humble-controller-manager ros-humble-gazebo-ros-pkgs ros-humble-mavros ros-humble-mavros-msgs ros-humble-gazebo-ros2-control ros-foxy-rosbag2-storage-mcap
+=======
+sudo apt install -y ros-humble-ros2-controllers ros-humble-ros2-control ros-humble-controller-manager
+sudo apt install -y ros-humble-xacro ros-humble-ros-core ros-humble-geometry2 ros-humble-gazebo-ros-pkgs ros-humble-mavros ros-humble-mavros-msgs ros-humble-gazebo-ros2-control
+>>>>>>> e872b2dfe04c (updated scrpts and moved to use alacritty and zellij as terminal emulator and multiplexer)
 
 
 # install smacc dependencies
-sudo apt install -y python3-colcon-common-extensions python3-vcstool python3-rosdep python3-rospkg ros-humble-tf2-geometry-msgs ros-humble-geometry-msgs
+sudo apt install -y python3-rosdep python3-rospkg ros-humble-tf2-geometry-msgs ros-humble-geometry-msgs
 
 # upgrade rospkg
 pip3 install -U rospkg 
@@ -39,10 +44,22 @@ sudo apt update
 sudo apt -y install ros-humble-smacc2-rta
 
 
+<<<<<<< HEAD
+=======
+# make workspace dir if it doesn't exist
+mkdir -p $HOME/workspace 
+
+>>>>>>> e872b2dfe04c (updated scrpts and moved to use alacritty and zellij as terminal emulator and multiplexer)
 # install px4 firmware - with current working branch and commit
 mkdir $HOME/workspace/ 
 cd $HOME/workspace/
+<<<<<<< HEAD
 git clone --recurse-submodules git@github.com:PX4/PX4-Autopilot.git
 cd PX4-Autopilot
 git checkout main
+=======
+git clone --recurse-submodules -j8 git@github.com:PX4/PX4-Autopilot.git
+cd PX4-Autopilot
+git checkout v1.13.3
+>>>>>>> e872b2dfe04c (updated scrpts and moved to use alacritty and zellij as terminal emulator and multiplexer)
 

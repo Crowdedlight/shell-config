@@ -19,10 +19,19 @@ sudo apt-get update
 sudo apt-get -y install diff-so-fancy
 
 # install tilix
-sudo apt install -y tilix
-# set tilix default
+#sudo apt install -y tilix
+
+# install rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# install alacritty and zellij
+cargo install zellij alacritty
+
+# set alacritty default
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which alacritty) 50
 sudo update-alternatives --config x-terminal-emulator
-# install so tilix can be used with nautilus
+
+# install so terminal can be used with nautilus
 sudo apt install -y python3-nautilus
 # move existing plugin for "open in terminal"
 sudo apt remove -y nautilus-extension-gnome-terminal

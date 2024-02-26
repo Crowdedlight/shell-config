@@ -1,0 +1,22 @@
+layout {
+    pane_template name="r2" {
+        command "zsh"
+        args "-c" "source ~/.config/zellij/layouts/r2fod_launch.sh"
+    }
+    pane_template name="r2sim" {
+        command "zsh"
+        args "-c" "source ~/.config/zellij/layouts/r2fod_launch.sh '/home/fm/workspace/ros_workspaces/simulation_ws'"
+    }
+    pane split_direction="vertical" {
+        pane split_direction="horizontal" {
+            r2 name="Full system"
+            r2 name="Local planner"
+        }
+        pane split_direction="horizontal" {
+            r2sim name="Gazebo"
+            r2sim name="Spawn & Mavros"
+            r2 name="foxglove"
+            r2 name="mavros cmds"
+        }
+    }
+}
