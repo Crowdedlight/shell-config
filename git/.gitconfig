@@ -239,3 +239,5 @@
 [user]
 	name = Frederik Mazur Andersen
 	email = crowdedhd@gmail.com
+[init]
+	defaultBranch = main

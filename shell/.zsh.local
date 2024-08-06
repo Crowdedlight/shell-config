@@ -27,3 +27,9 @@ export PATH="/home/$USER/.local/share/JetBrains/Toolbox/scripts:$PATH"
 #eval "$(register-python-argcomplete3 ros2)"
 #eval "$(register-python-argcomplete3 colcon)"
 export PATH="$PATH:$HOME/.local/bin"
+
+# android sdk path
+export ANDROID_HOME="$HOME/Android/Sdk"
+
+# flutter
+export PATH="$PATH:$HOME/workspace/flutter/bin" 
