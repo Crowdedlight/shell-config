@@ -21,6 +21,12 @@ sudo apt-get -y install diff-so-fancy
 # install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+# source rust
+. "$HOME/.cargo/env"
+
+# install dependencies as required by alacritty
+sudo apt-get install -y cmake g++ pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+
 # install alacritty and zellij
 cargo install zellij alacritty
 
@@ -83,7 +89,7 @@ sudo usermod -a -G plugdev $USER
 sudo usermod -a -G docker $USER
 
 #install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # set zsh as default shell if it isn't
 if [[ ! $(echo $SHELL) == $(which zsh) ]]; then

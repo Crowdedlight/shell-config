@@ -14,11 +14,6 @@ export ROS_DOMAIN_ID=106
 # balena cli
 export PATH=$PATH:$HOME/workspace/balena-cli
 
-# tilix fix
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-    source /etc/profile.d/vte.sh
-fi
-
 # path
 export PATH="/home/$USER/.local/share/JetBrains/Toolbox/scripts:$PATH"
 

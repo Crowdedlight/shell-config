@@ -52,4 +52,4 @@ curl -sSL https://install.python-poetry.org | python3 -
 cd $HOME/Documents/git/
 git clone https://github.com/mjcarroll/r2s.git
 cd r2s
-poetry install
+$HOME/.local/bin/poetry install
