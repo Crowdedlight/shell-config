@@ -11,15 +11,12 @@ sudo -v
 sudo apt-get update
 sudo apt-get upgrade -y
 
-sudo apt-get install -y fonts-firacode curl software-properties-common ffmpeg coreutils zsh nano build-essential fonts-hack-ttf git stow curl snapd vlc unzip wget python3 python3-dev gnupg
+sudo apt-get install -y fonts-firacode curl software-properties-common ffmpeg coreutils zsh nano build-essential fonts-hack-ttf git stow curl snapd vlc unzip wget python3 python3-dev gnupg ca-certificates
 
 #setup diff-so-fancy for git
 sudo add-apt-repository -y ppa:aos1/diff-so-fancy
 sudo apt-get update
 sudo apt-get -y install diff-so-fancy
-
-# install tilix
-#sudo apt install -y tilix
 
 # install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -39,16 +36,20 @@ sudo apt remove -y nautilus-extension-gnome-terminal
 killall nautilus
 
 #setup docker
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88
-sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
 
-sudo apt install -y docker-ce
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 #fonts
-wget https://use.fontawesome.com/releases/v5.10.2/fontawesome-free-5.10.2-desktop.zip -O ~/Downloads/fontawesome-free-5.10.2-desktop.zip
+wget https://use.fontawesome.com/releases/v6.7.2/fontawesome-free-6.7.2-desktop.zip -O ~/Downloads/fontawesome-free-6.7.2-desktop.zip
 wget https://fonts.google.com/download?family=Open%20Sans -O ~/Downloads/Open_Sans.zip
 
 cd /usr/share/fonts
@@ -60,7 +61,7 @@ sudo chmod -R --reference=/usr/share/fonts/opentype /usr/share/fonts/googlefonts
 cd /usr/share/fonts
 sudo mkdir fontawsome
 cd fontawsome
-sudo unzip -d . ~/Downloads/fontawesome-free-5.10.2-desktop.zip
+sudo unzip -d . ~/Downloads/fontawesome-free-6.7.2-desktop.zip
 sudo chmod -R --reference=/usr/share/fonts/opentype /usr/share/fonts/fontawsome
 
 cp ./config/.config/polybar/fonts/* /usr/share/fonts
@@ -69,8 +70,7 @@ sudo fc-cache -fv
 
 
 #install everything
-sudo apt-get update
-sudo apt install -y docker-ce docker-ce-cli containerd.io fonts-firacode
+#sudo apt-get update
 #sudo apt install -y alacritty arc-theme compton polybar i3-gaps
 #pip install flashfocus
 

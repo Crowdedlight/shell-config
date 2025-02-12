@@ -3,7 +3,11 @@
 sudo apt update && sudo apt upgrade
 
 # install packages directly from apt
-sudo apt install -y gnome-tweaks apt-transport-https solaar htop gnome-shell-extension-manager vlc
+sudo apt install -y gnome-tweaks apt-transport-https solaar htop gnome-shell-extension-manager vlc flatpak gnome-software-plugin-flatpak wget gpg
+
+# prusaslicer
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub com.prusa3d.PrusaSlicer
 
 # wire
 wget -q https://wire-app.wire.com/linux/releases.key -O- | sudo apt-key add -
@@ -12,7 +16,7 @@ echo "deb [arch=amd64] https://wire-app.wire.com/linux/debian stable main" \
 sudo apt-get update && sudo apt install -y wire-desktop
 
 # spotify
-curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+curl -sS https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
 sudo apt-get update && sudo apt-get install -y spotify-client
@@ -26,8 +30,12 @@ sudo apt update
 sudo apt -y install obs-studio
 
 # VS code
-wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
+rm -f packages.microsoft.gpg
+sudo apt update
 sudo apt -y install code
 
 # Font Papirus
@@ -36,17 +44,16 @@ sudo apt-get update
 sudo apt-get -y install papirus-icon-theme
 
 # install slack
-sudo snap install slack
+#sudo snap install slack
+flatpak install flathub com.slack.Slack
 
-# notion
-echo "deb [trusted=yes] https://apt.fury.io/notion-repackaged/ /" | sudo tee /etc/apt/sources.list.d/notion-repackaged.list
-sudo apt update
-sudo apt install notion-app-enhanced
+# obsidian
+flatpak install flathub md.obsidian.Obsidian
 
 # install kicad 
-sudo add-apt-repository -y ppa:kicad/kicad-7.0-releases
+sudo add-apt-repository --yes ppa:kicad/kicad-8.0-releases
 sudo apt update
-sudo apt -y install kicad
+sudo apt install --install-recommends kicad
 
 # solaar, flameshot
 sudo apt -y install solaar flameshot teams
@@ -61,13 +68,13 @@ wget https://github.com/julian-alarcon/prospect-mail/releases/download/v0.4.0/pr
 wget https://discord.com/api/download?platform=linux&format=deb
 
 # rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+#curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # toolbox
 mkdir $HOME/workspace
 cd $HOME/workspace/
 
-wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.1.3.18901.tar.gz 
+wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.5.3.37797.tar.gz
 wget https://github.com/nextcloud-releases/desktop/releases/latest/download/Nextcloud-3.11.0-x86_64.AppImage
 
 # flutter

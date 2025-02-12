@@ -2,13 +2,14 @@
 
 cd $HOME/Documents/git/
 
-git clone git@gitlab.com:uaswork/fod4wind/fod4wind_sdu.git
-git clone git@gitlab.com:uaswork/mavlora.git
-git clone git@gitlab.com:uaswork/multirx.git
-git clone git@github.com:Crowdedlight/RemoteID_viewer.git
-git clone git@github.com:Crowdedlight/adventofcode23.git
+
 git clone git@gitlab.com:Crowdedlight/radiorecorder.git
 git clone git@gitlab.com:Crowdedlight/coms_link.rs.git
-git clone git@gitlab.com:uaswork/sop-gen.git
 git clone git@github.com:Crowdedlight/BatMan.git
+git clone git@github.com:Crowdedlight/batman_dashboard.git
+git clone git@github.com:Crowdedlight/batman_qr_gen.git
+git clone git@github.com:Crowdedlight/RustEmbeddedPlaygound.git
+git clone git@github.com:Crowdedlight/Rust_Ros2_playground.git
+git clone git@github.com:Crowdedlight/hca_notam.git
+git clone git@github.com:Crowdedlight/tmotor_telemetry.git
 
