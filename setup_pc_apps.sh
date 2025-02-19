@@ -61,8 +61,8 @@ sudo apt -y install solaar flameshot teams
 echo "Now downloading .debs of programs for manual installation with eddy..."
 
 # prospect mail 0.4.0
-cd $HOME/Downloads/
-wget https://github.com/julian-alarcon/prospect-mail/releases/download/v0.4.0/prospect-mail_0.4.0_amd64.deb 
+#cd $HOME/Downloads/
+#wget https://github.com/julian-alarcon/prospect-mail/releases/download/v0.4.0/prospect-mail_0.4.0_amd64.deb 
 
 # discord
 wget https://discord.com/api/download?platform=linux&format=deb
@@ -75,27 +75,27 @@ mkdir $HOME/workspace
 cd $HOME/workspace/
 
 wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.5.3.37797.tar.gz
-wget https://github.com/nextcloud-releases/desktop/releases/latest/download/Nextcloud-3.11.0-x86_64.AppImage
+wget https://github.com/nextcloud-releases/desktop/releases/latest/download/Nextcloud-3.15.3-x86_64.AppImage
 
 # flutter
 sudo snap install flutter --classic
 
 # firefox
-sudo add-apt-repository ppa:mozillateam/ppa
-echo '
-Package: *
-Pin: release o=LP-PPA-mozillateam
-Pin-Priority: 1001
+#sudo add-apt-repository ppa:mozillateam/ppa
+#echo '
+#Package: *
+#Pin: release o=LP-PPA-mozillateam
+#Pin-Priority: 1001
 
-Package: firefox
-Pin: version 1:1snap1-0ubuntu2
-Pin-Priority: -1
-' | sudo tee /etc/apt/preferences.d/mozilla-firefox
-sudo snap remove firefox
+#Package: firefox
+#Pin: version 1:1snap1-0ubuntu2
+#Pin-Priority: -1
+#' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+#sudo snap remove firefox
 # sudo systemctl stop var-snap-firefox-common-host\x2dhunspell.mount
 # sudo systemctl disable var-snap-firefox-common-host\x2dhunspell.mount
-sudo apt install firefox
-echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
+#sudo apt install firefox
+#echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
 
 
 

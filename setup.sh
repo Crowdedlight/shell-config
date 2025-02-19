@@ -113,7 +113,7 @@ mv ~/.zshrc ~/.zshrc.old
 cd $CONFIG_PATH;
 stow -t $HOME config
 stow -t $HOME git
-stow -t $HOME gnupg
+#stow -t $HOME gnupg
 stow -t $HOME shell
 
 #set permissions
@@ -124,5 +124,5 @@ sudo apt-get autoclean
 sudo apt-get autoremove
 
 # reload zsh settings
-source ~/.zshrc
+#source ~/.zshrc
 
