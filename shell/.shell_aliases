@@ -195,7 +195,9 @@ trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the 
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 alias usbs='dmesg | grep tty'               # usbs:         Shows connected usbs
-#alias cb='catkin build && source devel/setup.bash' # cb:    Builds catkin packages and sources devel
+
+# misc alias
+alias soundfix='systemctl --user restart wireplumber pipewire pipewire-pulse'
 
 # alias for gazebo
 alias gzkill='killall -9 gzserver gzclient'
@@ -215,6 +217,9 @@ alias cbn='colcon build --symlink --event-handlers console_cohesion+ --cmake-arg
 alias cbclean='sudo rm -rf install/ build/ log/'
 alias cbd='cb --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo'
 alias cbdd='cb --cmake-args -Werror=return-type -DCMAKE_BUILD_TYPE=debug'
+
+# colcon tests
+alias cbtest='colcon test --event-handlers console_cohesion+'
 
 alias r2new='ros2 pkg create --maintainer-email fm@mmmi.sdu.dk --maintainer-name "Frederik Mazur Andersen"'
 
