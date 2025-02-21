@@ -74,6 +74,8 @@ wget https://discord.com/api/download?platform=linux&format=deb
 mkdir $HOME/workspace
 cd $HOME/workspace/
 
+sudo apt-get install -y libfuse-dev
+
 wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.5.3.37797.tar.gz
 wget https://github.com/nextcloud-releases/desktop/releases/latest/download/Nextcloud-3.15.3-x86_64.AppImage
 
@@ -97,7 +99,9 @@ sudo snap install flutter --classic
 #sudo apt install firefox
 #echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
 
-
-
-
-
+# signal
+wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
+cat signal-desktop-keyring.gpg | sudo tee /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
+  sudo tee /etc/apt/sources.list.d/signal-xenial.list
+sudo apt update && sudo apt install signal-desktop
