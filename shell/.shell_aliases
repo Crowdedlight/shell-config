@@ -203,7 +203,7 @@ alias soundfix='systemctl --user restart wireplumber pipewire pipewire-pulse'
 alias gzkill='killall -9 gzserver gzclient'
 
 # alias for ros2 workspace, ros2. sources it and changes to ros2 workspace
-alias r2='source /opt/ros/humble/setup.zsh && complete -o nospace -o default -F _python_argcomplete "ros2"'
+alias r2='source /opt/ros/jazzy/setup.zsh && complete -o nospace -o default -F _python_argcomplete "ros2"'
 alias r2fod='r2 && cd /home/$USER/workspace/ros_workspaces/fod4wind_ws'
 alias r2sim='r2 && cd /home/$USER/workspace/ros_workspaces/simulation_ws'
 alias r2b='r2 && cb'
