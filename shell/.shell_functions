@@ -36,7 +36,7 @@ qfind () {
 }
 
 # get gzipped size
-function gz() {
+function gzs() {
   echo "orig size    (bytes): "
   cat "$1" | wc -c
   echo "gzipped size (bytes): "
