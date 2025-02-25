@@ -203,12 +203,12 @@ alias soundfix='systemctl --user restart wireplumber pipewire pipewire-pulse'
 alias gzkill='killall -9 gzserver gzclient'
 
 # alias for ros2 workspace, ros2. sources it and changes to ros2 workspace
-alias r2='source /opt/ros/jazzy/setup.zsh && complete -o nospace -o default -F _python_argcomplete "ros2"'
+alias r2='source /opt/ros/jazzy/setup.zsh'
 alias r2fod='r2 && cd /home/$USER/workspace/ros_workspaces/fod4wind_ws'
 alias r2sim='r2 && cd /home/$USER/workspace/ros_workspaces/simulation_ws'
 alias r2b='r2 && cb'
 alias r2bcd='r2cd && r2b'
-alias ss='source install/setup.zsh && complete -o nospace -o default -F _python_argcomplete "ros2"'
+alias ss='source install/setup.zsh'
 alias r2s='r2 && poetry run r2s'
 alias r2z='r2 && export RMW_IMPLEMENTATION=rmw_zenoh_cpp'
 
@@ -235,3 +235,4 @@ alias unreal='$HOME/workspace/Linux_Unreal_Engine/Engine/Binaries/Linux/UnrealEd
 
 # alias for layout manager - If I want attached to current session I can use "zellij attach --index 0 || zellij" instead
 alias zz='zellij' 
+alias zzw='zz attach working_window'
