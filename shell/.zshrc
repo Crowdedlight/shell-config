@@ -37,7 +37,7 @@ export PATH
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="spaceship"
+#ZSH_THEME="spaceship"
 
 # Uncomment the following line to enable command auto-correction.
 #ENABLE_CORRECTION="true"
@@ -74,5 +74,8 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+#export SDKMAN_DIR="$HOME/.sdkman"
+#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# starship init
+eval "$(starship init zsh)"

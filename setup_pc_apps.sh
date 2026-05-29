@@ -6,20 +6,13 @@ sudo apt update && sudo apt upgrade
 sudo apt install -y gnome-tweaks apt-transport-https solaar htop gnome-shell-extension-manager vlc flatpak gnome-software-plugin-flatpak wget gpg
 
 # prusaslicer
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.prusa3d.PrusaSlicer
-
-# wire
-wget -q https://wire-app.wire.com/linux/releases.key -O- | sudo apt-key add -
-echo "deb [arch=amd64] https://wire-app.wire.com/linux/debian stable main" \
-   | sudo tee /etc/apt/sources.list.d/wire-desktop.list
-sudo apt-get update && sudo apt install -y wire-desktop
+sudo flatpak install flathub com.prusa3d.PrusaSlicer
 
 # spotify
-curl -sS https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+curl -sS https://download.spotify.com/debian/pubkey_5384CE82BA52C83A.asc | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+echo "deb https://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
-sudo apt-get update && sudo apt-get install -y spotify-client
+sudo apt-get update && sudo apt-get install spotify-client
 
 # blender
 sudo snap install blender --classic
@@ -50,22 +43,19 @@ flatpak install flathub com.slack.Slack
 # obsidian
 flatpak install flathub md.obsidian.Obsidian
 
-# install kicad 
-sudo add-apt-repository --yes ppa:kicad/kicad-8.0-releases
+# install kicad
+sudo add-apt-repository --yes ppa:kicad/kicad-10.0-releases
 sudo apt update
 sudo apt install --install-recommends kicad
 
 # solaar, flameshot
-sudo apt -y install solaar flameshot teams
+sudo apt -y install solaar flameshot
 
 echo "Now downloading .debs of programs for manual installation with eddy..."
 
-# prospect mail 0.4.0
-#cd $HOME/Downloads/
-#wget https://github.com/julian-alarcon/prospect-mail/releases/download/v0.4.0/prospect-mail_0.4.0_amd64.deb 
-
 # discord
-wget https://discord.com/api/download?platform=linux&format=deb
+curl --output $HOME/Downloads/discord.deb https://discord.com/api/download\?platform\=linux\&format\=deb
+sudo dpkg -i $HOME/Downloads/discord.deb
 
 # rust
 #curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -77,7 +67,7 @@ cd $HOME/workspace/
 sudo apt-get install -y libfuse-dev
 
 wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.5.3.37797.tar.gz
-wget https://github.com/nextcloud-releases/desktop/releases/latest/download/Nextcloud-3.15.3-x86_64.AppImage
+#wget https://github.com/nextcloud-releases/desktop/releases/latest/download/Nextcloud-3.15.3-x86_64.AppImage
 
 # flutter
 sudo snap install flutter --classic
@@ -100,8 +90,8 @@ sudo snap install flutter --classic
 #echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
 
 # signal
-wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
+wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg;
 cat signal-desktop-keyring.gpg | sudo tee /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
-echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
-  sudo tee /etc/apt/sources.list.d/signal-xenial.list
+wget -O signal-desktop.sources https://updates.signal.org/static/desktop/apt/signal-desktop.sources;
+cat signal-desktop.sources | sudo tee /etc/apt/sources.list.d/signal-desktop.sources > /dev/null
 sudo apt update && sudo apt install signal-desktop

@@ -11,12 +11,10 @@ sudo -v
 sudo apt-get update
 sudo apt-get upgrade -y
 
-sudo apt-get install -y fonts-firacode curl software-properties-common ffmpeg coreutils zsh nano build-essential fonts-hack-ttf git stow curl snapd vlc unzip wget python3 python3-dev gnupg ca-certificates
+sudo apt-get install -y fonts-firacode curl software-properties-common ffmpeg coreutils zsh nano build-essential fonts-hack git stow curl snapd vlc unzip wget python3 python3-dev gnupg ca-certificates
 
 #setup diff-so-fancy for git
-sudo add-apt-repository -y ppa:aos1/diff-so-fancy
-sudo apt-get update
-sudo apt-get -y install diff-so-fancy
+wget -P $HOME/.local/bin/ "https://github.com/so-fancy/diff-so-fancy/releases/download/$(curl --silent "https://api.github.com/repos/so-fancy/diff-so-fancy/releases/latest" | jq -r .tag_name)/diff-so-fancy"
 
 # install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -30,9 +28,18 @@ sudo apt-get install -y cmake g++ pkg-config libfreetype6-dev libfontconfig1-dev
 # install alacritty and zellij
 cargo install zellij alacritty
 
+# install desktop entry for alacritty
+wget -P $HOME/Downloads https://github.com/alacritty/alacritty/raw/refs/heads/master/extra/linux/Alacritty.desktop
+sudo wget -O /usr/share/pixmaps/Alacritty.svg https://github.com/alacritty/alacritty/raw/refs/heads/master/extra/logo/alacritty-term.svg
+sudo desktop-file-install $HOME/Downloads/Alacritty.desktop
+sudo update-desktop-database
+
 # set alacritty default
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which alacritty) 50
 sudo update-alternatives --config x-terminal-emulator
+
+# set alacritty as default in gnome
+#gsettings set org.gnome.desktop.default-applications.terminal exec 'alacritty'
 
 # install so terminal can be used with nautilus
 sudo apt install -y python3-nautilus
@@ -40,6 +47,9 @@ sudo apt install -y python3-nautilus
 sudo apt remove -y nautilus-extension-gnome-terminal
 # restart nautilus
 killall nautilus
+
+# install gnome shell extension manager
+sudo apt install -y gnome-shell-extension-manager
 
 #setup docker
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -74,15 +84,6 @@ cp ./config/.config/polybar/fonts/* /usr/share/fonts
 
 sudo fc-cache -fv
 
-
-#install everything
-#sudo apt-get update
-#sudo apt install -y alacritty arc-theme compton polybar i3-gaps
-#pip install flashfocus
-
-#gsettings set org.gnome.desktop.interface gtk-theme 'Ark-Dark'
-#wget https://i.imgur.com/n0PSwJQ.png -O ~/Pictures/samurai.png
-
 # add user to dialout, plugdev and docker groups
 sudo usermod -a -G dialout $USER
 sudo usermod -a -G plugdev $USER
@@ -100,12 +101,13 @@ fi
 sudo apt install -y fzf
 
 # install theme
-ln -s "$CONFIG_PATH/zsh-themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+#ln -s "$CONFIG_PATH/zsh-themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+sudo apt install -y starship
 
 # install plugins
 git clone https://github.com/bobthecow/git-flow-completion $HOME/.oh-my-zsh/custom/plugins/git-flow-completion
 
-#simlink configs
+#symlink configs
 mv ~/.bashrc ~/.bashrc.old
 mv ~/.zshrc ~/.zshrc.old
 #mv ~/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml.old
