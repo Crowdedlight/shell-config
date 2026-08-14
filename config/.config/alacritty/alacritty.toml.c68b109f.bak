@@ -239,7 +239,7 @@ bindings = [
     { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" },
     { key = "N",      mods = "Control|Alt",       action =  "CreateNewWindow" },
     # { key = "Key", mods = "Modifiers", chars = "Characters to send" },
-    { key = "Return", mods = "Shift",        chars = "\u001B\r"},
+    # ...
 ]
 
 [general]
@@ -253,4 +253,3 @@ bindings = [
 import = [
     "~/.config/alacritty/themes/themes/one_dark.toml"
 ]
-

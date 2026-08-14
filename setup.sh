@@ -15,6 +15,7 @@ sudo apt-get install -y fonts-firacode curl software-properties-common ffmpeg co
 
 #setup diff-so-fancy for git
 wget -P $HOME/.local/bin/ "https://github.com/so-fancy/diff-so-fancy/releases/download/$(curl --silent "https://api.github.com/repos/so-fancy/diff-so-fancy/releases/latest" | jq -r .tag_name)/diff-so-fancy"
+sudo chmod +x $HOME/.local/bin/diff-so-fancy
 
 # install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
